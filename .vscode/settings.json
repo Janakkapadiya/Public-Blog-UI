@@ -1,0 +1,9 @@
+{
+    "cSpell.words": [
+        "Roboto"
+    ],
+    "files.associations": [{
+        "*.js": "javascriptreact",
+        "*.ts": "typescriptreact"
+    }]
+}
