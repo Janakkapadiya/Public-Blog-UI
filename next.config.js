@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["localhost", "127.0.0.1"],
+    domains: ["urchin-app-4hcup.ondigitalocean.app"],
   },
 };
 
