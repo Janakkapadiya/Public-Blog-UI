@@ -1,6 +1,7 @@
 "use client";
 
 import { unsetToken } from "@/lib/auth";
+//@ts-ignore
 import Cookies from "js-cookie";
 import Image from "next/image";
 import Link from "next/link";

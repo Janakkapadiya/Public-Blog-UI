@@ -1,3 +1,4 @@
+//@ts-ignore
 import Cookies from "js-cookie";
 
 export const setToken = async (data: {
