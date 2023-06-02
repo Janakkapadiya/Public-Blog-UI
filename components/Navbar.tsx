@@ -30,7 +30,7 @@ const Navbar = () => {
             className="align-middle text-center table-cell"
             width={40}
             height={45}
-            src="/logo-removebg-preview.png"
+            src="/icons8-petabyte-128.png"
             alt="Daily Blog"
           />
         </div>
