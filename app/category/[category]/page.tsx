@@ -6,6 +6,7 @@ import {
   IPagination,
   IQueryOptions,
 } from "@/types";
+//@ts-ignore
 import { AxiosResponse } from "axios";
 import React from "react";
 //@ts-ignore

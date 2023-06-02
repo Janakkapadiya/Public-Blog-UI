@@ -10,7 +10,7 @@ import { fetchArticles, fetchCategories } from "@/http";
 import React from "react";
 
 import Articles from "@/components/Articles";
-
+//@ts-ignore
 import { AxiosResponse } from "axios";
 import Pagination from "@/components/Pagination";
 import { capitalizeFirstLetter, makeCategory } from "@/utils";

@@ -5,6 +5,7 @@ import React from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { ICategory } from "@/types";
 
+//@ts-ignore
 import _ from "lodash";
 
 interface IPropType {
