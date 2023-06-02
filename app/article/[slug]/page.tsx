@@ -4,6 +4,7 @@ import { IArticle, ICollectionResponse } from "@/types";
 import { fetchArticleBySlug } from "@/http";
 import ArticleSlug from "@/components/ArticleSlug";
 import { serializeMarkdown } from "@/utils";
+//@ts-ignore
 import qs from 'qs';
 
 interface IPropTypes {

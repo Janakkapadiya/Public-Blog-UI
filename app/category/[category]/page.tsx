@@ -8,6 +8,7 @@ import {
 } from "@/types";
 import { AxiosResponse } from "axios";
 import React from "react";
+//@ts-ignore
 import qs from "qs";
 import Tabs from "@/components/Tabs";
 import Articles from "@/components/Articles";

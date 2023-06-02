@@ -15,7 +15,9 @@ import { AxiosResponse } from "axios";
 import Pagination from "@/components/Pagination";
 import { capitalizeFirstLetter, makeCategory } from "@/utils";
 import Head from "next/head";
+//@ts-ignore
 import qs from 'qs';
+
 
 interface IPropTypes {
   params: any;

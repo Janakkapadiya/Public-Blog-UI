@@ -2,6 +2,7 @@
 
 import React from "react";
 import { TDirection } from "../types/index";
+//@ts-ignore
 import qs from "qs";
 import { usePathname, useRouter } from "next/navigation";
 
