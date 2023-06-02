@@ -12,10 +12,10 @@ import React from "react";
 import Articles from "@/components/Articles";
 
 import { AxiosResponse } from "axios";
-import qs from "qs";
 import Pagination from "@/components/Pagination";
 import { capitalizeFirstLetter, makeCategory } from "@/utils";
 import Head from "next/head";
+import qs from 'qs';
 
 interface IPropTypes {
   params: any;
