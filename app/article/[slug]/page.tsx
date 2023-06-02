@@ -1,10 +1,10 @@
 import React from "react";
 import { AxiosResponse } from "axios";
 import { IArticle, ICollectionResponse } from "@/types";
-import qs from "qs";
 import { fetchArticleBySlug } from "@/http";
 import ArticleSlug from "@/components/ArticleSlug";
 import { serializeMarkdown } from "@/utils";
+import qs from 'qs';
 
 interface IPropTypes {
   params: any;
