@@ -61,9 +61,7 @@ function Signin() {
               required
               onChange={handleChange}
               placeholder="Password"
-              pattern="[a-z0-9]{1,15}"
-              title="Password should be digits (0 to 9) or alphabets (a to z)."
-              autoComplete="on"
+              autoComplete="off"
             />
             <button
               type="submit"

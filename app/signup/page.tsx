@@ -2,20 +2,11 @@
 
 import { fetchData } from "@/http";
 import { setToken } from "@/lib/auth";
-import { useState } from "react";
+import { signUpSchema } from "@/schema/schema";
+import { useFormik } from "formik";
 
 const Signup = () => {
-  const [userData, setUserData] = useState({
-    firstName: "",
-    lastName: "",
-    username: "",
-    email: "",
-    password: "",
-    confirm_password: "",
-  });
-
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
+  const onSubmit = async (values: any, actions: any) => {
     try {
       const responseData = await fetchData(
         `${process.env.NEXT_PUBLIC_BASE_URL}/auth/local/register`,
@@ -24,12 +15,12 @@ const Signup = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            firstName: userData.firstName,
-            lastName: userData.lastName,
-            username: userData.username,
-            email: userData.email,
-            password: userData.password,
-            confirm_password: userData.confirm_password,
+            firstName: values.firstName,
+            lastName: values.lastName,
+            username: values.username,
+            email: values.email,
+            password: values.password,
+            confirm_password: values.confirm_password,
           }),
           method: "POST",
         }
@@ -39,12 +30,30 @@ const Signup = () => {
     } catch (error) {
       console.error(error);
     }
+
+    actions.resetForm();
   };
 
-  const handleChange = (e: any) => {
-    const { name, value } = e.target;
-    setUserData({ ...userData, [name]: value });
-  };
+  const {
+    values,
+    errors,
+    touched,
+    isSubmitting,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+  } = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      username: "",
+      email: "",
+      password: "",
+      confirm_password: "",
+    },
+    validationSchema: signUpSchema,
+    onSubmit,
+  });
 
   return (
     <form onSubmit={handleSubmit}>
@@ -56,62 +65,76 @@ const Signup = () => {
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="firstName"
-              onChange={(e) => handleChange(e)}
-              required
-              minLength={4}
+              onChange={handleChange}
+              value={values.firstName}
+              onBlur={handleBlur}
               placeholder="First Name"
             />
-
+            {touched.firstName && errors.firstName ? (
+              <p className="form-error">{errors.firstName}</p>
+            ) : null}
             <input
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="lastName"
-              onChange={(e) => handleChange(e)}
-              minLength={4}
+              onChange={handleChange}
+              value={values.lastName}
+              onBlur={handleBlur}
               placeholder="Last Name"
             />
-
+            {touched.lastName && errors.lastName ? (
+              <p className="form-error">{errors.lastName}</p>
+            ) : null}
             <input
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="username"
-              onChange={(e) => handleChange(e)}
-              required
-              minLength={4}
+              onChange={handleChange}
+              value={values.username}
+              onBlur={handleBlur}
               placeholder="User Name"
             />
-
+            {touched.username && errors.username ? (
+              <p className="form-error">{errors.username}</p>
+            ) : null}
             <input
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="email"
-              onChange={(e) => handleChange(e)}
-              required
+              onChange={handleChange}
+              value={values.email}
+              onBlur={handleBlur}
               placeholder="Email"
             />
-
+            {touched.email && errors.email ? (
+              <p className="form-error">{errors.email}</p>
+            ) : null}
             <input
               type="password"
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="password"
-              onChange={(e) => handleChange(e)}
-              required
-              pattern="[a-z0-9]{1,15}"
-              title="Password should be digits (0 to 9) or alphabets (a to z)."
+              onChange={handleChange}
+              value={values.password}
+              onBlur={handleBlur}
               placeholder="Password"
             />
+            {errors.confirm_password && touched.confirm_password ? (
+              <p className="form-error">{errors.confirm_password}</p>
+            ) : null}
             <input
               type="password"
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="confirm_password"
-              onChange={(e) => handleChange(e)}
-              required
-              pattern="[a-z0-9]{1,15}"
-              title="Password should be digits (0 to 9) or alphabets (a to z)."
+              onChange={handleChange}
+              value={values.confirm_password}
+              onBlur={handleBlur}
               placeholder="Confirm Password"
             />
-
+            {errors.confirm_password && touched.confirm_password ? (
+              <p className="form-error">{errors.confirm_password}</p>
+            ) : null}
             <button
+              disabled={isSubmitting}
               type="submit"
               className="w-full text-center py-3 rounded bg-gray-800 text-white hover:bg-gray-600 focus:outline-none my-1"
             >
