@@ -57,6 +57,8 @@ const Signup = () => {
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="firstName"
               onChange={(e) => handleChange(e)}
+              required
+              minLength={4}
               placeholder="First Name"
             />
 
@@ -65,6 +67,7 @@ const Signup = () => {
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="lastName"
               onChange={(e) => handleChange(e)}
+              minLength={4}
               placeholder="Last Name"
             />
 
@@ -73,6 +76,8 @@ const Signup = () => {
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="username"
               onChange={(e) => handleChange(e)}
+              required
+              minLength={4}
               placeholder="User Name"
             />
 
@@ -81,6 +86,7 @@ const Signup = () => {
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="email"
               onChange={(e) => handleChange(e)}
+              required
               placeholder="Email"
             />
 
@@ -89,6 +95,9 @@ const Signup = () => {
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="password"
               onChange={(e) => handleChange(e)}
+              required
+              pattern="[a-z0-9]{1,15}"
+              title="Password should be digits (0 to 9) or alphabets (a to z)."
               placeholder="Password"
             />
             <input
@@ -96,6 +105,9 @@ const Signup = () => {
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="confirm_password"
               onChange={(e) => handleChange(e)}
+              required
+              pattern="[a-z0-9]{1,15}"
+              title="Password should be digits (0 to 9) or alphabets (a to z)."
               placeholder="Confirm Password"
             />
 

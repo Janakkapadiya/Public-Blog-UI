@@ -2,11 +2,9 @@
 
 import { fetchData } from "@/http";
 import { setToken } from "@/lib/auth";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 function Signin() {
-  const router = useRouter();
   const [data, setData] = useState({
     identifier: "",
     password: "",
@@ -51,6 +49,7 @@ function Signin() {
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4 "
               name="identifier"
+              required
               onChange={handleChange}
               placeholder="Email"
             />
@@ -59,8 +58,11 @@ function Signin() {
               type="password"
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="password"
+              required
               onChange={handleChange}
               placeholder="Password"
+              pattern="[a-z0-9]{1,15}"
+              title="Password should be digits (0 to 9) or alphabets (a to z)."
               autoComplete="on"
             />
             <button

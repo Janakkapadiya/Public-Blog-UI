@@ -54,7 +54,7 @@ const Pagination = ({ searchParams, page, pageCount }: IPropType) => {
       </button>
       <button
         onClick={() => handlePagination(1)}
-        className={`${"bg-bg-primary ml-7 py-2 px-4 text-white w-24 rounded"} ${
+        className={`${"bg-primary ml-7 py-2 px-4 text-white w-24 rounded"} ${
           isNextDisabled() === true ? "disabled" : ""
         }`}
       >
