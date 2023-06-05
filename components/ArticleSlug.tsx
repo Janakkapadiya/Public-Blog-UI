@@ -2,7 +2,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { IArticle } from "@/types";
 import { fDate } from "@/utils";
-//@ts-ignore
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import Head from "next/head";
 import Image from "next/image";

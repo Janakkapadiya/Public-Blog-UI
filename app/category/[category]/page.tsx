@@ -6,7 +6,6 @@ import {
   IPagination,
   IQueryOptions,
 } from "@/types";
-//@ts-ignore
 import { AxiosResponse } from "axios";
 import React from "react";
 //@ts-ignore
@@ -61,6 +60,11 @@ const Category = async ({ searchParams, params }: any) => {
       </Head>
       <Tabs categories={categories.data} />
       <Articles articles={articles.data} />
+      <Pagination
+        searchParams={searchParams}
+        page={page}
+        pageCount={pageCount}
+      />
     </>
   );
 };
