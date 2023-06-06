@@ -21,6 +21,11 @@ const Tabs = ({ categories }: IPropType) => {
 
   return (
     <div className="container mx-auto my-8 flex items-center justify-between border-b-2 border-gray-100">
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9873084572968601"
+        crossOrigin="anonymous"
+      ></script>
       <ul className="flex items-center">
         <li
           className={

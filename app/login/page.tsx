@@ -5,6 +5,7 @@ import { setToken } from "@/lib/auth";
 import React, { useState } from "react";
 
 function Signin() {
+  const [error, setError] = useState("");
   const [data, setData] = useState({
     identifier: "",
     password: "",
@@ -18,24 +19,28 @@ function Signin() {
   };
 
   const handleOnSubmit = async (e: any) => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
 
-    const loginApi = await fetchData(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/auth/local`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          identifier: data.identifier,
-          password: data.password,
-        }),
-      }
-    );
-
-    await setToken(loginApi);
-    window.location.replace("/");
+      const loginApi = await fetchData(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/auth/local`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            identifier: data.identifier,
+            password: data.password,
+          }),
+        }
+      );
+      console.log(loginApi?.identifier)
+      await setToken(loginApi);
+      window.location.replace("/");
+    } catch (e) {
+      setError("user not found");
+    }
   };
 
   return (
@@ -63,6 +68,11 @@ function Signin() {
               placeholder="Password"
               autoComplete="off"
             />
+            {error ? (
+              <div className="text-red-500 flex justify-center">{error}</div>
+            ) : (
+              " "
+            )}
             <button
               type="submit"
               className="w-full text-center py-3 rounded bg-gray-800 text-white hover:bg-gray-600 focus:outline-none my-1"

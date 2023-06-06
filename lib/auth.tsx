@@ -2,7 +2,7 @@
 import Cookies from "js-cookie";
 
 export const setToken = async (data: {
-  user: { id: string; email: string };
+  user: { id: string; email: string; username: string };
   jwt: string;
 }) => {
   if (typeof window === "undefined") {
@@ -11,6 +11,7 @@ export const setToken = async (data: {
   Cookies.set("id", data.user.id);
   Cookies.set("email", data.user.email);
   Cookies.set("jwt", data.jwt);
+  Cookies.set("username", data.user.username);
 };
 
 export const unsetToken = () => {

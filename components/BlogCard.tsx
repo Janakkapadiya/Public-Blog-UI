@@ -11,18 +11,23 @@ interface IPropType {
 function BlogCard({ article }: IPropType) {
   return (
     <>
+      <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9873084572968601"
+          crossOrigin="anonymous"
+        ></script>
       <Link href={`/article/${article?.attributes.Slug}`}>
         <h1 className="text-xl text-gray-600 font-bold hover:decoration-2 hover:underline hover:cursor-pointer hover:decoration-primary">
           {article.attributes.Title}
         </h1>
       </Link>
       <div className="flex items-center my-4">
-        <div className="rounded-lg overflow-hidden flex items-center justify-center mr-2">
+        <div className="rounded-md overflow-hidden flex items-center justify-center mr-2">
           <Image
             src={`https://urchin-app-4hcup.ondigitalocean.app${article.attributes.author.data.attributes.avatar.data.attributes.formats.thumbnail.url}`}
             alt="profile image"
-            height={40}
-            width={40}
+            height={30}
+            width={30}
           />
         </div>
         <span className="text-sm font-bold text-gray-600">

@@ -4,8 +4,11 @@ import { fetchData } from "@/http";
 import { setToken } from "@/lib/auth";
 import { signUpSchema } from "@/schema/schema";
 import { useFormik } from "formik";
+import { useState } from "react";
 
 const Signup = () => {
+  const [error, setError] = useState("");
+
   const onSubmit = async (values: any, actions: any) => {
     try {
       const responseData = await fetchData(
@@ -28,7 +31,7 @@ const Signup = () => {
       await setToken(responseData);
       window.location.replace("/");
     } catch (error) {
-      console.error(error);
+      setError("username has been already taken");
     }
 
     actions.resetForm();
@@ -71,7 +74,9 @@ const Signup = () => {
               placeholder="First Name"
             />
             {touched.firstName && errors.firstName ? (
-              <p className="form-error">{errors.firstName}</p>
+              <p className="form-error text-red-600 flex justify-center">
+                {errors.firstName}
+              </p>
             ) : null}
             <input
               type="text"
@@ -83,7 +88,9 @@ const Signup = () => {
               placeholder="Last Name"
             />
             {touched.lastName && errors.lastName ? (
-              <p className="form-error">{errors.lastName}</p>
+              <p className="form-error text-red-600 flex justify-center">
+                {errors.lastName}
+              </p>
             ) : null}
             <input
               type="text"
@@ -95,7 +102,9 @@ const Signup = () => {
               placeholder="User Name"
             />
             {touched.username && errors.username ? (
-              <p className="form-error">{errors.username}</p>
+              <p className="form-error text-red-600 flex justify-center">
+                {errors.username}
+              </p>
             ) : null}
             <input
               type="text"
@@ -107,7 +116,9 @@ const Signup = () => {
               placeholder="Email"
             />
             {touched.email && errors.email ? (
-              <p className="form-error">{errors.email}</p>
+              <p className="form-error text-red-600 flex justify-center">
+                {errors.email}
+              </p>
             ) : null}
             <input
               type="password"
@@ -119,7 +130,9 @@ const Signup = () => {
               placeholder="Password"
             />
             {errors.confirm_password && touched.confirm_password ? (
-              <p className="form-error">{errors.confirm_password}</p>
+              <p className="form-error text-red-600 flex justify-center">
+                {errors.confirm_password}
+              </p>
             ) : null}
             <input
               type="password"
@@ -131,8 +144,13 @@ const Signup = () => {
               placeholder="Confirm Password"
             />
             {errors.confirm_password && touched.confirm_password ? (
-              <p className="form-error">{errors.confirm_password}</p>
+              <p className="form-error text-red-600 flex justify-center">
+                {errors.confirm_password}
+              </p>
             ) : null}
+            {error ? (
+              <div className="text-red-500 flex justify-center">{error}</div>
+            ) : ""}
             <button
               disabled={isSubmitting}
               type="submit"

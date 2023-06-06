@@ -43,22 +43,22 @@ function Footer() {
           </p>
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
             <a href="https://www.facebook.com/" className="ml-3 mt-3">
-              <FacebookShareButton url={""}>
+              <FacebookShareButton url={"https://www.facebook.com/"}>
                 <FacebookIcon size={32} round />
               </FacebookShareButton>
             </a>
             <a href="https://twitter.com/" className="ml-3 mt-3">
-              <TwitterShareButton url="">
+              <TwitterShareButton url="https://twitter.com/">
                 <TwitterIcon size={32} round />
               </TwitterShareButton>
             </a>
             <a href="https://www.linkedin.com/" className="ml-3 mt-3">
-              <LinkedinShareButton url="">
+              <LinkedinShareButton url="https://www.linkedin.com/">
                 <LinkedinIcon size={32} round />
               </LinkedinShareButton>
             </a>
             <a href="https://web.telegram.org/" className="ml-3 mt-3">
-              <TelegramShareButton url="">
+              <TelegramShareButton url="https://web.telegram.org/">
                 <TelegramIcon size={32} round />
               </TelegramShareButton>
             </a>
