@@ -8,6 +8,10 @@ import React from "react";
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
+      <meta
+        name="google-site-verification"
+        content="4itmoiUB049oQ9RalavHA_d9122esgKQOlaPYm1XGSI"
+      />
       <body>
         <NextNProgress />
         <Header />
