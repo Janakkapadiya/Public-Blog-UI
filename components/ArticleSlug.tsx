@@ -10,13 +10,23 @@ import {
 } from "next-share";
 import Head from "next/head";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 interface IPropType {
   article: IArticle;
 }
 
 function ArticleSlug({ article }: IPropType) {
+  const handleSubmit = (e: any) => {
+    console.log("clicked");
+  };
+
+  // const [email, setEmail] = useState(null);
+
+  // useEffect(() => {
+  //   console.log("clicked");
+  // }, [handleSubmit, email]);
+
   return (
     <>
       <Head>
@@ -75,7 +85,10 @@ function ArticleSlug({ article }: IPropType) {
             type="email"
             placeholder="Your work email"
           />
-          <button className="border-2 border-primary rounded py-1 px-6 text-primary font-bold">
+          <button
+            className="border-2 border-primary rounded py-1 px-6 text-primary font-bold"
+            onClick={handleSubmit}
+          >
             Subscribe
           </button>
           <hr className="my-6 border-gray-100" />

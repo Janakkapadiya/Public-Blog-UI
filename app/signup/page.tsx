@@ -150,7 +150,9 @@ const Signup = () => {
             ) : null}
             {error ? (
               <div className="text-red-500 flex justify-center">{error}</div>
-            ) : ""}
+            ) : (
+              ""
+            )}
             <button
               disabled={isSubmitting}
               type="submit"

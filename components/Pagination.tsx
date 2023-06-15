@@ -43,7 +43,7 @@ const Pagination = ({ searchParams, page, pageCount }: IPropType) => {
   };
 
   return (
-    <div className="flex justify-center mt-12">
+    <div className="flex justify-center text-center mt-12 mx-4 md:mx-auto mr-10 md:mr-auto">
       <button
         onClick={() => handlePagination(-1)}
         className={`${"bg-primary py-2 px-4 text-white w-24 rounded"} ${

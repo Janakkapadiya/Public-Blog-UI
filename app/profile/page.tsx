@@ -1,10 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
+//@ts-ignore
+import Cookies from "js-cookie";
 function Profile() {
+  const [name, setName] = useState("unknown");
+  useEffect(() => {
+    const cookie: any = Cookies.get("username");
+    setName(cookie);
+  }, []);
   return (
-    <section className="pt-16 bg-blueGray-50">
+    <section className="pt-16 bg-blueGray-50 ">
       <div className="w-full lg:w-4/12 px-4 mx-auto">
         <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
           <div className="px-6">
@@ -12,80 +19,43 @@ function Profile() {
               <div className="w-full px-4 flex justify-center">
                 <div className="relative">
                   <Image
-                    width={40}
-                    height={40}
-                    alt="demos.jpg"
-                    src=""
-                    className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
+                    width={80}
+                    height={80}
+                    alt=""
+                    src="/user_318-159711.avif"
+                    className="p-2 rounded-full py-2 text-black bg-gray-400 flex justify-center items-center mr-1"
                   />
                 </div>
               </div>
             </div>
-            <div className="text-center mt-12">
+            <div className="text-center mt-6">
               <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2"></h3>
               <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
-                <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
-                Los Angeles, California
-              </div>
-              <div className="mb-2 text-blueGray-600 mt-10">
-                <i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
-                Solution Manager - Creative Tim Officer
-              </div>
-              <div className="mb-2 text-blueGray-600">
-                <i className="fas fa-university mr-2 text-lg text-blueGray-400"></i>
-                University of Computer Science
+                <text className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400">
+                  Hello {name}
+                </text>
               </div>
             </div>
             <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
               <div className="flex flex-wrap justify-center">
                 <div className="w-full lg:w-9/12 px-4">
                   <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
-                    An artist of considerable range, Jenna the name taken by
-                    Melbourne-raised, Brooklyn-based Nick Murphy writes,
-                    performs and records all of his own music, giving it a warm,
-                    intimate feel with a solid groove structure. An artist of
-                    considerable range.
+                    Welcome to my sweet corner of the internet! Here, I share my
+                    thoughts, experiences, and moments of joy. Life is a
+                    beautiful journey, and through this blog, I hope to spread
+                    positivity, inspire others, and create a community of
+                    like-minded individuals. Join me as we explore the wonders
+                    of life, celebrate the little things that make us smile, and
+                    embrace the sweetness in every moment. Together, let us
+                    create a world filled with love, laughter, and endless
+                    sweetness.
                   </p>
-                  <a
-                    href="javascript:void(0);"
-                    className="font-normal text-pink-500"
-                  >
-                    Show more
-                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <footer className="relative  pt-8 pb-6 mt-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap items-center md:justify-between justify-center">
-            <div className="w-full md:w-6/12 px-4 mx-auto text-center">
-              <div className="text-sm text-blueGray-500 font-semibold py-1">
-                Made with{" "}
-                <a
-                  href="https://www.creative-tim.com/product/notus-js"
-                  className="text-blueGray-500 hover:text-gray-800"
-                  target="_blank"
-                >
-                  Notus JS
-                </a>{" "}
-                by{" "}
-                <a
-                  href="https://www.creative-tim.com"
-                  className="text-blueGray-500 hover:text-blueGray-800"
-                  target="_blank"
-                >
-                  {" "}
-                  Creative Tim
-                </a>
-                .
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
     </section>
   );
 }
