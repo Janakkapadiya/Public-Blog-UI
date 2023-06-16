@@ -44,7 +44,7 @@ function Signin() {
   };
 
   return (
-    <form onSubmit={handleOnSubmit}>
+    <form onSubmit={e => handleOnSubmit(e)}>
       <div className="bg-grey-lighter min-h-screen flex flex-col pr-16">
         <div className="max-w-sm mx-auto my-0 flex flex-col pt-8 items-center">
           <div className="bg-white px-12 py-8 rounded shadow-md text-black w-full">
