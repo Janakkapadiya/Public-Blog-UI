@@ -35,7 +35,7 @@ function Signin() {
           }),
         }
       );
-      console.log(loginApi?.identifier)
+      console.log(loginApi?.identifier);
       await setToken(loginApi);
       window.location.replace("/");
     } catch (e) {
@@ -44,7 +44,7 @@ function Signin() {
   };
 
   return (
-    <form onSubmit={e => handleOnSubmit(e)}>
+    <form onSubmit={(e) => handleOnSubmit(e)}>
       <div className="bg-grey-lighter min-h-screen flex flex-col pr-16">
         <div className="max-w-sm mx-auto my-0 flex flex-col pt-8 items-center">
           <div className="bg-white px-12 py-8 rounded shadow-md text-black w-full">
