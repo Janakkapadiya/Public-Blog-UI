@@ -12,14 +12,14 @@ export default async function sitemap() {
 
   const { data: articles } = art;
 
-  const category = categories?.map((category: any, publishedAt: any) => ({
+  const category = categories?.map((category: any) => ({
     url: `https://publicblog.live/category/${category.attributes.Slug}`,
-    lastModified: publishedAt,
+    lastModified: category.attributes.publishedAt,
   }));
 
-  const article = articles?.map((article: any, publishedAt: any) => ({
+  const article = articles?.map((article: any) => ({
     url: `https://publicblog.live/article/${article.attributes.Slug}`,
-    lastModified: publishedAt,
+    lastModified: article.attributes.publishedAt,
   }));
 
   const routes = ["", "/login", "/signup", "/"].map((route) => ({
