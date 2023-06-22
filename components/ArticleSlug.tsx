@@ -21,12 +21,6 @@ function ArticleSlug({ article }: IPropType) {
     console.log("clicked");
   };
 
-  // const [email, setEmail] = useState(null);
-
-  // useEffect(() => {
-  //   console.log("clicked");
-  // }, [handleSubmit, email]);
-
   return (
     <>
       <Head>
