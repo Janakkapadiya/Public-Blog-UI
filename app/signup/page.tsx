@@ -4,6 +4,7 @@ import { fetchData } from "@/http";
 import { setToken } from "@/lib/auth";
 import { signUpSchema } from "@/schema/schema";
 import { useFormik } from "formik";
+import Link from "next/link";
 import { useState } from "react";
 
 const Signup = () => {
@@ -60,7 +61,7 @@ const Signup = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="bg-grey-lighter min-h-screen flex flex-col pr-16">
+      <div className="bg-grey-lighter min-h-screen flex flex-col pr-4 pl-4 md:pr-16 md:pl-16">
         <div className="max-w-sm mx-auto my-0 flex flex-col pt-8 items-center">
           <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
             <h1 className="mb-8 text-3xl text-center">Sign up</h1>
@@ -181,12 +182,12 @@ const Signup = () => {
 
           <div className="text-grey-dark mt-6">
             Already have an account?
-            <a
+            <Link
               className="no-underline border-b border-blue text-blue"
               href="/login"
             >
               Log in
-            </a>
+            </Link>
             .
           </div>
         </div>

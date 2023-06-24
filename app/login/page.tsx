@@ -2,6 +2,7 @@
 
 import { fetchData } from "@/http";
 import { setToken } from "@/lib/auth";
+import Link from "next/link";
 import React, { useState } from "react";
 
 function Signin() {
@@ -45,14 +46,14 @@ function Signin() {
 
   return (
     <form onSubmit={(e) => handleOnSubmit(e)}>
-      <div className="bg-grey-lighter min-h-screen flex flex-col pr-16">
+      <div className="bg-grey-lighter min-h-screen flex flex-col pr-4 pl-4 md:pr-16 md:pl-16">
         <div className="max-w-sm mx-auto my-0 flex flex-col pt-8 items-center">
-          <div className="bg-white px-12 py-8 rounded shadow-md text-black w-full">
+          <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
             <h1 className="mb-8 text-3xl text-center">Login</h1>
 
             <input
               type="text"
-              className="block border border-grey-light w-full p-3 rounded mb-4 "
+              className="block border border-grey-light w-full p-3 rounded mb-4"
               name="identifier"
               required
               onChange={handleChange}
@@ -83,12 +84,12 @@ function Signin() {
 
           <div className="text-grey-dark mt-6">
             Do not have an account?
-            <a
+            <Link
               className="no-underline border-b border-blue text-blue"
               href="/signup"
             >
               Sign up
-            </a>
+            </Link>
             .
           </div>
         </div>

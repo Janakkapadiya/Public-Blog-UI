@@ -26,8 +26,8 @@ function BlogCard({ article }: IPropType) {
           <Image
             src={`https://urchin-app-4hcup.ondigitalocean.app${article.attributes.author.data.attributes.avatar.data.attributes.formats.thumbnail.url}`}
             alt="profile image"
-            height={30}
-            width={30}
+            height={20}
+            width={20}
           />
         </div>
         <span className="text-sm font-bold text-gray-600">

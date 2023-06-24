@@ -34,15 +34,15 @@ function ArticleSlug({ article }: IPropType) {
         <link rel="icon" href="../public/logo-removebg-preview.png" />
       </Head>
       <div className="mx-auto container px-3 my-12 grid lg:grid-cols-3 gap-12 single-article">
-        <div className="col-span-2 font-bold">
+        <div className="col-span-2 font-bold mb-10">
           <h1 className="text-2xl">{article.attributes.Title}</h1>
           <div className="flex items-center my-4">
             <div className="rounded-lg overflow-hidden flex items-center justify-center mr-2">
               <Image
                 src={`https://urchin-app-4hcup.ondigitalocean.app${article.attributes.author.data.attributes.avatar.data.attributes.formats.thumbnail.url}`}
                 alt="profile image"
-                height={40}
-                width={40}
+                height={20}
+                width={20}
               />
             </div>
             <span className="text-sm font-bold text-gray-600">
@@ -53,7 +53,7 @@ function ArticleSlug({ article }: IPropType) {
               {fDate(article.attributes.createdAt)}
             </span>
           </div>
-          <div className="text-md font-style: italic leading-8 text-gray-600">
+          <div className="text-sm not-italic font-normal leading-8 text-gray-600">
             <Image
               height={400}
               width={700}
