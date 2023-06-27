@@ -3,6 +3,7 @@
 import { unsetToken } from "@/lib/auth";
 //@ts-ignore
 import Cookies from "js-cookie";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -10,6 +11,8 @@ import React, { useEffect, useState } from "react";
 const Navbar = () => {
   const [isLogged, setIsLogged] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const { data } = useSession();
 
   useEffect(() => {
     const email = Cookies.get("email");
@@ -19,6 +22,7 @@ const Navbar = () => {
   }, []);
 
   const logout = () => {
+    signOut();
     unsetToken();
     setIsLogged(false);
     window.location.replace("/");
@@ -61,27 +65,54 @@ const Navbar = () => {
           isMobileMenuOpen ? "flex" : "hidden"
         } md:flex items-center md:ml-auto`}
       >
-        {isLogged && (
-          <li className="mr-6 font-medium text-gray-600">
-            <Link
-              href="/profile"
-              className="bg-primary py-2 px-4 rounded-sm text-white hover:bg-gray-600 transition-all"
-            >
-              Profile
-            </Link>
-          </li>
+        {data?.user?.email && (
+          <>
+            <li className="mr-6 font-medium text-gray-600">
+              <Link href="/" className=" py-2 px-4">
+                <Image
+                  height={30}
+                  width={30}
+                  src={data?.user?.image || "img"}
+                  alt={data?.user?.name || "profile img"}
+                  className="rounded-full"
+                />
+              </Link>
+            </li>
+            <li className="mr-6 font-medium text-gray-600">
+              <a
+                className="bg-primary py-2 px-4 rounded-sm text-white hover:bg-gray-600 cursor-pointer transition-all"
+                onClick={logout}
+              >
+                Logout
+              </a>
+            </li>
+          </>
         )}
-        {isLogged && (
-          <li className="mr-6 font-medium text-gray-600">
-            <a
-              className="bg-primary py-2 px-4 rounded-sm text-white hover:bg-gray-600 cursor-pointer transition-all"
-              onClick={logout}
-            >
-              Logout
-            </a>
-          </li>
+
+        {!data?.user?.email && isLogged && (
+          <>
+            <li className="mr-6 font-medium text-gray-600">
+              <Link href="/" className=" py-2 px-4 rounded-md">
+                <Image
+                  height={30}
+                  width={30}
+                  src="/default-profile-img.png"
+                  alt="profile img"
+                />
+              </Link>
+            </li>
+            <li className="mr-6 font-medium text-gray-600">
+              <a
+                className="bg-primary py-2 px-4 rounded-sm text-white hover:bg-gray-600 cursor-pointer transition-all"
+                onClick={logout}
+              >
+                Logout
+              </a>
+            </li>
+          </>
         )}
-        {!isLogged && (
+
+        {!isLogged && !data?.user?.email && (
           <>
             <li className="mr-6 font-medium text-gray-600">
               <Link href="/login" className="hover:text-gray-400">

@@ -17,8 +17,15 @@ interface IPropType {
 }
 
 function ArticleSlug({ article }: IPropType) {
+  const [isSubmitted, setSubmitted] = useState(false);
+
+  setTimeout(() => {
+    setSubmitted(false);
+  }, 2000);
+
   const handleSubmit = (e: any) => {
-    console.log("clicked");
+    e.preventDefault();
+    setSubmitted(true);
   };
 
   return (
@@ -75,10 +82,15 @@ function ArticleSlug({ article }: IPropType) {
             inbox
           </p>
           <input
-            className="border w-full p-2 pl-3 my-6 outline-primary"
+            className="border w-full p-2 pl-3 my-4 outline-primary"
             type="email"
             placeholder="Your work email"
           />
+          {isSubmitted && (
+            <p className="text-green-500 py-2">
+              Thank You! Your email has been submitted!
+            </p>
+          )}
           <button
             className="border-2 border-primary rounded py-1 px-6 text-primary font-bold"
             onClick={handleSubmit}
