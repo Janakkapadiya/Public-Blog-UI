@@ -7,10 +7,14 @@ import { useFormik } from "formik";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 const Signup = () => {
   const [error, setError] = useState("");
+
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams?.get("/login");
 
   const onSubmit = async (values: any, actions: any) => {
     try {
@@ -191,7 +195,9 @@ const Signup = () => {
             <button
               type="button"
               className="btn btn-link btn-floating-mx-1"
-              onClick={() => signIn("google")}
+              onClick={() => {
+                signIn("google"), callbackUrl;
+              }}
             >
               <Image
                 height={35}
@@ -203,7 +209,9 @@ const Signup = () => {
             <button
               type="button"
               className="btn btn-link btn-floating-mx-1 ml-5"
-              onClick={() => signIn("github")}
+              onClick={() => {
+                signIn("github"), callbackUrl;
+              }}
             >
               <Image
                 height={33}
