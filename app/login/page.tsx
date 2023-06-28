@@ -14,11 +14,6 @@ function Signin() {
     password: "",
   });
 
-  const handleGoogleSignIn = () => {
-    signIn("google");
-    window.location.replace("/");
-  };
-
   const handleChange = (e: any) => {
     setData({
       ...data,
@@ -43,7 +38,6 @@ function Signin() {
           }),
         }
       );
-      console.log(loginApi?.identifier);
       await setToken(loginApi);
       window.location.replace("/");
     } catch (e) {
@@ -98,7 +92,7 @@ function Signin() {
             <button
               type="button"
               className="btn btn-link btn-floating-mx-1"
-              onClick={() => handleGoogleSignIn()}
+              onClick={() => signIn("google")}
             >
               <Image
                 height={35}
