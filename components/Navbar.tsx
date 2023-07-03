@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isLogged, setIsLogged] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const { data } = useSession();
+  const { data: session } = useSession();
 
   useEffect(() => {
     const email = Cookies.get("email");
@@ -65,15 +65,15 @@ const Navbar = () => {
           isMobileMenuOpen ? "flex" : "hidden"
         } md:flex items-center md:ml-auto`}
       >
-        {data?.user?.email && (
+        {session?.user?.email && (
           <>
             <li className="mr-6 font-medium text-gray-600">
               <Link href="/" className=" py-2 px-4">
                 <Image
                   height={30}
                   width={30}
-                  src={data?.user?.image || "img"}
-                  alt={data?.user?.name || "profile img"}
+                  src={session?.user?.image || "img"}
+                  alt={session?.user?.name || "profile img"}
                   className="rounded-full"
                 />
               </Link>
@@ -89,7 +89,7 @@ const Navbar = () => {
           </>
         )}
 
-        {!data?.user?.email && isLogged && (
+        {!session?.user?.email && isLogged && (
           <>
             <li className="mr-6 font-medium text-gray-600">
               <Link href="/" className=" py-2 px-4 rounded-md">
@@ -112,7 +112,7 @@ const Navbar = () => {
           </>
         )}
 
-        {!isLogged && !data?.user?.email && (
+        {!isLogged && !session?.user?.email && (
           <>
             <li className="mr-6 font-medium text-gray-600">
               <Link href="/login" className="hover:text-gray-400">

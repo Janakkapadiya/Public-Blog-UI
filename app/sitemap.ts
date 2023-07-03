@@ -22,7 +22,7 @@ export default async function sitemap() {
     lastModified: article.attributes.publishedAt,
   }));
 
-  const routes = ["", "/login", "/signup", "/"].map((route) => ({
+  const routes = ["/login", "/signup", "/"].map((route) => ({
     url: `https://publicblog.live${route}`,
     lastModified: new Date().toISOString(),
   }));
