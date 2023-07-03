@@ -92,7 +92,11 @@ function Signin() {
             <button
               type="button"
               className="btn btn-link btn-floating-mx-1"
-              onClick={() => signIn("google")}
+              onClick={() =>
+                signIn("google", {
+                  callbackUrl: "/",
+                })
+              }
             >
               <Image
                 height={35}
@@ -105,7 +109,9 @@ function Signin() {
               type="button"
               className="btn btn-link btn-floating-mx-1 ml-5"
               onClick={() => {
-                signIn("github");
+                signIn("github", {
+                  callbackUrl: "/",
+                });
               }}
             >
               <Image
