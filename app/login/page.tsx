@@ -5,7 +5,6 @@ import { setToken } from "@/lib/auth";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 
 function Signin() {
@@ -14,14 +13,6 @@ function Signin() {
     identifier: "",
     password: "",
   });
-
-  // const searchParams = useSearchParams();
-  // const callbackUrl = searchParams?.get("/login");
-
-  const handleGoogleOnClick = () => {
-    signIn("google");
-    window.location.reload();
-  };
 
   const handleChange = (e: any) => {
     setData({
@@ -101,7 +92,7 @@ function Signin() {
             <button
               type="button"
               className="btn btn-link btn-floating-mx-1"
-              onClick={() => handleGoogleOnClick()}
+              onClick={() => signIn("google")}
             >
               <Image
                 height={35}
