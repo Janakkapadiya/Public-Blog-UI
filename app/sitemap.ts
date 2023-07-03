@@ -22,10 +22,10 @@ export default async function sitemap() {
     lastModified: article.attributes.publishedAt,
   }));
 
-  const routes = ["/login", "/signup", "/"].map((route) => ({
-    url: `https://publicblog.live${route}`,
-    lastModified: new Date().toISOString(),
-  }));
+  // const routes = ["/login", "/signup", "/"].map((route) => ({
+  //   url: `https://publicblog.live${route}`,
+  //   lastModified: new Date().toISOString(),
+  // }));
 
-  return [...routes, ...category, ...article];
+  return [...category, ...article];
 }
