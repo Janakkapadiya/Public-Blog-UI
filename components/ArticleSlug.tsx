@@ -149,21 +149,6 @@ function ArticleSlug({ article }: IPropType) {
             </a>
           </span>
           <hr className="my-6 border-gray-100" />
-          <div className="text-gray-600">
-            <h3 className="font-bold text-gray-600 mb-2">Related Articles</h3>
-            {/* Add your related articles or links here */}
-            <ul>
-              <li>
-                <a href="#">Article 1</a>
-              </li>
-              <li>
-                <a href="#">Article 2</a>
-              </li>
-              <li>
-                <a href="#">Article 3</a>
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
     </>
