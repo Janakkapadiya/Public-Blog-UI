@@ -14,18 +14,15 @@ export default async function sitemap() {
 
   const category = categories?.map((category: any) => ({
     url: `https://publicblog.live/category/${category.attributes.Slug}`,
-    lastModified: category.attributes.publishedAt,
   }));
 
   const article = articles?.map((article: any) => ({
     url: `https://publicblog.live/article/${article.attributes.Slug}`,
-    lastModified: article.attributes.publishedAt,
   }));
 
-  // const routes = ["/login", "/signup", "/"].map((route) => ({
-  //   url: `https://publicblog.live${route}`,
-  //   lastModified: new Date().toISOString(),
-  // }));
+  const routes = ["/login", "/signup"]?.map((route) => ({
+    url: `https://publicblog.live${route}`,
+  }));
 
-  return [...category, ...article];
+  return [...routes, ...category, ...article];
 }
