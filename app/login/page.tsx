@@ -15,8 +15,8 @@ function Signin() {
     password: "",
   });
 
-  const searchParams = useSearchParams();
-  const callbackUrl: any = searchParams?.get("/login");
+  // const searchParams = useSearchParams();
+  // const callbackUrl = searchParams?.get("/login");
 
   const handleChange = (e: any) => {
     setData({
@@ -96,7 +96,9 @@ function Signin() {
             <button
               type="button"
               className="btn btn-link btn-floating-mx-1"
-              onClick={() => signIn("google", { callbackUrl })}
+              onClick={() => {
+                signIn("google");
+              }}
             >
               <Image
                 height={35}
@@ -109,7 +111,7 @@ function Signin() {
               type="button"
               className="btn btn-link btn-floating-mx-1 ml-5"
               onClick={() => {
-                signIn("github", { callbackUrl });
+                signIn("github");
               }}
             >
               <Image
