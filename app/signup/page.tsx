@@ -192,7 +192,7 @@ const Signup = () => {
               type="button"
               className="btn btn-link btn-floating-mx-1"
               onClick={() => {
-                signIn("google");
+                signIn("google", { callbackUrl: "/" });
               }}
             >
               <Image
@@ -206,7 +206,7 @@ const Signup = () => {
               type="button"
               className="btn btn-link btn-floating-mx-1 ml-5"
               onClick={() => {
-                signIn("github");
+                signIn("github", { callbackUrl: "/" });
               }}
             >
               <Image
