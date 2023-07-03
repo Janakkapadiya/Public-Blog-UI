@@ -18,6 +18,11 @@ function Signin() {
   // const searchParams = useSearchParams();
   // const callbackUrl = searchParams?.get("/login");
 
+  const handleGoogleOnClick = () => {
+    signIn("google");
+    window.location.reload();
+  };
+
   const handleChange = (e: any) => {
     setData({
       ...data,
@@ -96,9 +101,7 @@ function Signin() {
             <button
               type="button"
               className="btn btn-link btn-floating-mx-1"
-              onClick={() => {
-                signIn("google");
-              }}
+              onClick={() => handleGoogleOnClick()}
             >
               <Image
                 height={35}
